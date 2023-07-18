@@ -1,0 +1,31 @@
+1 - ORDER BY:
+O ORDER BY ele é responsavel por ditar a ordem de uma query especifica seja por ascendente(ASC) ou descendente(DESC).
+Outro ponto importante da função de ordenação é que, ela sempre vai respeitar a primeira ordem
+em relação a próxima, ou seja, em um cenário que temos por exemplo:
+ORDER BY CODPROD   DESC,
+         DESCRICAO ASC
+
+2 - JOIN:
+2.A LEFT OUTER JOIN:
+Traz todos os dados da tabela previa e os que se batem na tabela seguinte
+         SELECT <CAMPOS>
+           FROM PCUSUARI
+LEFT OUTER JOIN PCSUPERV
+             ON PCUSUARI.CODSUPERVISOR = PCSUPERV.CODSUPERVISOR
+       ORDER BY PCUSUARI.CODSUPERVISOR DESC
+
+2.B INNER JOIN:
+Traz todos os dados se batem em ambas as tabela
+         SELECT <CAMPOS>
+           FROM PCUSUARI
+           JOIN PCSUPERV
+             ON PCUSUARI.CODSUPERVISOR = PCSUPERV.CODSUPERVISOR
+       ORDER BY PCUSUARI.CODSUPERVISOR DESC
+
+2.C RIGHT OUTER JOIN:
+Traz todos os dados da tabela secundaria e os que se batem na tabela primaria
+          SELECT <CAMPOS>
+            FROM PCUSUARI
+RIGHT OUTER JOIN PCSUPERV
+              ON PCUSUARI.CODSUPERVISOR = PCSUPERV.CODSUPERVISOR
+        ORDER BY PCUSUARI.CODSUPERVISOR DESC

@@ -13,9 +13,7 @@
   <p>Muito Importante!<p/> 
 <li><strong>DBEAVER</strong></li>
 <p> Segue o <a href="https://dbeaver.io/download/ target="_blank">link</a> para download do dbeaver. (Também é possivel o uso de outro software de gerenciamento de banco de dados)</p>
-<li><strong>DOCKER</strong></li>
-  <p>Futuramente para a versão alternativa e local do banco a fim de que quem visite esse repo tenha a possibilidade de testar as respostas.</p>
-</ol>
+
 
 <hr/>
 <h3> <strong>AGRADECIMENTOS:</strong> </h3>

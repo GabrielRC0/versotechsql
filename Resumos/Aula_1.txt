@@ -1,0 +1,78 @@
+1 - QUEM SOMOS:
+Somos uma empresa de tecnologia que atua no mercado B2B (business to business) desde 2017, trazendo excelência e inovação para o segmento.
+
+2 - O que é um ERP?
+Um ERP (Enterprise Resource Planning) é um sistema que ajuda as empresas a organizar e automatizar suas operações de forma fácil. (Exemplos: Totvs, Sap, Sankhya)
+
+3- Modelos de dados:
+
+3.A: Modelo relacional:
+
+O modelo relacional representa o banco de dados como um conjunto de relações.
+
+3.B: Modelo Entidade-Relacionamento:
+
+É uma perspectiva para projetistas, sendo focado mais por PO´s do que com a parte responsavel pela estrutura fisica. No caso diagrama ER.
+
+4. Comandos:
+
+4.A Comandos Select:
+    SELECT <CAMPOS>
+      FROM <TABELA>
+     WHERE <CLAUSULAS>
+    
+O comando Select informa que estamos realizando uma seleção em um segmento de tabela. ele pode ser completo como SELECT *, ou podemos escolher as colunas por exemplo PCUSUR.NOME.
+O FROM demonstra de qual tabela estamos puxando essa informação.
+Já o WHERE define regras aos quais os dados devem se encontrar. EX. WHERE value <= 2000. assim iria buscar valores menores ou iguais a 2000.
+
+WHERE, OR E AND.
+WHERE é utilizado logo após o FROM e define as condições para filtrar os resultados.
+AND é uma condicional lógica que permite adicionar mais restrições aos resultados.
+OR é uma condicional lógica que adiciona mais possibilidades aos resultados.
+
+5. Tabelas:
+PCPRODUT é a tabela com as informações relacionadas aos produtos.
+PCCLIENT é a tabela com informações sobre clientes.
+PCFORNEC é a tabela com informações sobre os fornecedores.
+PCUSUARI é a tabela com informações sobre usuarios (vendedores).
+PCSUPERV é a tabela com informações sobre os supervisores.
+PCPEDC é a tabela com informações sobre o cabeçalho do pedido.
+PCPEDI é a tabela com informações sobre o pedido de uma forma mais detalhada de cada pedido, como valores individuais dos produtos selecionados bem como outras informações.
+
+6. Clausulas Lógicas
+    6.A: <=, <, >, =>:
+Essas são clausulas que limitam os valores em condições de maior, maior e igual, menor e menor e igual.
+Exemplo:
+        SELECT * FROM PCUSUARI WHERE CODUSUR < 85; 
+        SELECT * FROM PCUSUARI WHERE CODUSUR <= 85;
+A primeira consulta traria todos os CODUSUR de 84 para baixo, já na segunda teriamos incluido o CODUSUR 85.
+
+    6.B: Igual (=) Diferente (<> / =!)
+Clausulas que irão trazer os valores que sejam iguais ou diferentes do valor desejado.
+Exemplo: 
+        SELECT * FROM PCUSUARI WHERE CODUSUR = 85; 
+        SELECT * FROM PCUSUARI WHERE CODUSUR <> 85;
+Na primeira consulta ira trazer somente o resultado 85 tendo em vista que buscamos o igual, mas na segunda ira trazer todos os valores diferentes de 85.
+
+    6.C: BETWEEN e NOT BETWEEN
+Vai limitar os valores em um grupo predefinido.
+Exemplo: 
+        SELECT * FROM PCUSUARI WHERE CODUSUR BETWEEN 1 AND 100;
+        SELECT * FROM PCUSUARI WHERE CODUSUR NOT BETWEEN 1 AND 100;
+Na primeira consulta ira trazer somente os resultados entre 1 e 100, mas na segunda ira trazer todos os valores diferentes de 1 e 100.
+
+    6.D: LIKE e NOT LIKE
+Limita os valores para os que demonstrem o conteudo que contem ou não contem o desejado, seja no %***(inicio), %***%(meio), ***%(fim).
+Exemplo: 
+        SELECT * FROM PCUSUARI WHERE NOME LIKE '%SILVA%';
+        SELECT * FROM PCUSUARI WHERE NOME NOT LIKE '%SILVA%';
+Na primeira consulta ira trazer somente os resultados que contem SILVA no meio do campo, mas na segunda consulta ira trazer todos os valores que não apresentem SILVA no meio.
+
+    6.E: IN e NOT IN
+Caso tivermos a necessidade de sermos bem explicitos, bem como os <=> ou between não conseguirem nos atender, temos o IN e NOT IN que filtra por valores especificos a query.
+Exemplo: 
+        SELECT * FROM PCPRODUT WHERE CODPROD IN (10,50,30);
+        SELECT * FROM PCPRODUT WHERE CODPROD NOT IN (10,50,30);
+Na primeira consulta ira trazer somente os resultados que contem 10, 50 e 30 e o NOT IN todo exceto esses tres valores, importante lembrar que como isso é entrada para uma vaga de estagio de suporte, podemos
+pensar no motivo do qual essa ultima query seria feita, afinal de contas o por que não trariamos esses tres? Talvez sejam valores que confirmemos que estão errado, ou seja simplesmente pedido pelo cliente, mas acredito que 
+cada query feita nesse curso seja valido revisarmos com olhar critico de situações "reais" que imaginemos, como seria usado, o porque e quando. 
